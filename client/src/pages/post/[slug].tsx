@@ -9,6 +9,8 @@ interface PostProps {
 }
 
 const Post: NextPage<PostProps> = ({ data }) => {
+  if (!data) return <></>;
+
   return (
     <>
       <div className="flex justify-center mx-6">
