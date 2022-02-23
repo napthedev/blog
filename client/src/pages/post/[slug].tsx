@@ -3,6 +3,7 @@ import Link from "next/link";
 import SocialShare from "../../components/SocialShare";
 import { client } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
+import "highlight.js/styles/atom-one-dark.css";
 
 interface PostProps {
   data: any;
@@ -75,6 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       data: result,
     },
+    revalidate: 60,
   };
 };
 
