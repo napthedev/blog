@@ -29,7 +29,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
           <p className="text-gray-500 dark:text-gray-400 my-3">
             {formatDate(data._updatedAt)}
           </p>
-          <div className="flex gap-x-2 flex-wrap">
+          <div className="flex gap-2 flex-wrap">
             {data.categories.map((category: any) => (
               <Link
                 key={category.slug.current}
@@ -44,7 +44,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
           <SocialShare title={data.title} />
           <p className="my-4">{data.description}</p>
           <div
-            className="prose dark:prose-invert prose-headings:text-sky-500 dark:prose-headings:text-sky-400 prose-a:text-blue-500 dark:prose-a:text-blue-400 prose-headings:mt-6 prose-headings:mb-4"
+            className="prose dark:prose-invert prose-headings:text-sky-500 dark:prose-headings:text-sky-400 prose-a:text-blue-500 dark:prose-a:text-blue-400 prose-headings:mt-6 prose-headings:mb-4 prose-pre:bg-[#121213]"
             dangerouslySetInnerHTML={{ __html: data.body }}
           ></div>
         </div>
