@@ -7,6 +7,8 @@ interface CategoryProps {
 }
 
 const Category: NextPage<CategoryProps> = ({ data }) => {
+  if (!data) return <></>;
+
   return (
     <>
       <div className="flex justify-center mx-6">

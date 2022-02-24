@@ -11,6 +11,8 @@ interface PostProps {
 }
 
 const Post: NextPage<PostProps> = ({ data }) => {
+  if (!data) return <></>;
+
   return (
     <>
       <Meta
