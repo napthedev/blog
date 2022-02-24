@@ -19,7 +19,7 @@ const PostItem: FC<PostItemProps> = ({ post, total, index }) => {
       <Link href={`/post/${post.slug.current}`}>
         <a className="flex-shrink-0 hover:brightness-90 transition duration-300">
           <img
-            className="w-[100px] h-[100px] md:w-[150px] md:h-[150px]"
+            className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] border dark:border-gray-600"
             src={urlFor(post.mainImage)
               .fit("clip")
               .width(150)

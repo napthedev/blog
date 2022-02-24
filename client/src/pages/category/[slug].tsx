@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Meta from "../../components/Meta";
 import PostItem from "../../components/PostItem";
 import { client } from "../../shared/client";
 
@@ -11,6 +12,11 @@ const Category: NextPage<CategoryProps> = ({ data }) => {
 
   return (
     <>
+      <Meta
+        title={`Danh mục: ${data.title}`}
+        description="NAPTheDev's Blog"
+        image="/illustration"
+      />
       <div className="flex justify-center mx-6">
         <div className="flex flex-col items-stretch w-full max-w-[700px] min-h-screen my-5 md:my-10">
           <h1 className="text-3xl">Danh mục: {data.title}</h1>
