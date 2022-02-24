@@ -15,10 +15,13 @@ export const markdownToHTML = (text: string) => {
 
   $("pre code").each(function () {
     const el = $(this);
-    const highlighted = hljs.highlight(el.text() as string, {
-      language: el.attr("class")?.split(" ")[0] as string,
-    }).value;
-    el.html(highlighted);
+    const lang = el.attr("class")?.split(" ")[0] as string;
+    if (lang) {
+      const highlighted = hljs.highlight(el.text() as string, {
+        language: lang,
+      }).value;
+      el.html(highlighted);
+    }
   });
 
   return $("body").html();
