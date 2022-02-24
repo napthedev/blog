@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Meta from "../components/Meta";
+import PostItem from "../components/PostItem";
 import { client, urlFor } from "../shared/client";
 import { formatDate } from "../shared/utils";
 
@@ -20,39 +21,12 @@ const Home: NextPage<HomeProps> = ({ posts, categories }) => {
       <div className="flex justify-center mx-6">
         <div className="flex flex-col items-stretch w-full max-w-[700px] min-h-screen my-5 md:my-10">
           {posts.map((post: any, index: number) => (
-            <div
+            <PostItem
               key={post.slug.current}
-              className={`flex gap-4 py-4 ${
-                index < posts.length - 1 ? "border-b dark:border-gray-600" : ""
-              }`}
-            >
-              <Link href={`/post/${post.slug.current}`}>
-                <a className="flex-shrink-0 hover:brightness-90 transition duration-300">
-                  <img
-                    className="w-[100px] h-[100px] md:w-[150px] md:h-[150px]"
-                    src={urlFor(post.mainImage)
-                      .fit("clip")
-                      .width(150)
-                      .height(150)
-                      .url()}
-                    alt=""
-                  />
-                </a>
-              </Link>
-              <div>
-                <Link href={`/post/${post.slug.current}`}>
-                  <a className="text-primary text-xl md:text-2xl hover:brightness-125 transition duration-300 line-clamp-1 sm:line-clamp-2">
-                    {post.title}
-                  </a>
-                </Link>
-                <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
-                  {formatDate(post._updatedAt)}
-                </p>
-                <p className="text-sm md:text-base line-clamp-2 sm:line-clamp-3">
-                  {post.description}
-                </p>
-              </div>
-            </div>
+              post={post}
+              index={index}
+              total={posts.length}
+            />
           ))}
 
           <div className="flex gap-x-2 flex-wrap">

@@ -1,19 +1,23 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import SocialShare from "../../components/SocialShare";
-import { client } from "../../shared/client";
+import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
 import "highlight.js/styles/atom-one-dark.css";
+import Meta from "../../components/Meta";
 
 interface PostProps {
   data: any;
 }
 
 const Post: NextPage<PostProps> = ({ data }) => {
-  if (!data) return <></>;
-
   return (
     <>
+      <Meta
+        title={data.title}
+        description={data.description}
+        image={urlFor(data.mainImage).url()}
+      />
       <div className="flex justify-center mx-6">
         <div className="flex flex-col items-stretch w-full max-w-[700px] min-h-screen my-5 md:my-10">
           <h1 className="text-4xl font-semibold dark:text-white">
@@ -65,7 +69,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   );
 
-  const data = res[0];
+  const data = res?.[0];
+
+  if (!data)
+    return {
+      props: {},
+      notFound: true,
+    };
 
   const result = {
     ...data,
