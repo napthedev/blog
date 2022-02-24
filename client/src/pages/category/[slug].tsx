@@ -21,6 +21,11 @@ const Category: NextPage<CategoryProps> = ({ data }) => {
       <div className="flex justify-center mx-6">
         <div className="flex flex-col items-stretch w-full max-w-[700px] min-h-screen my-5 md:my-10">
           <h1 className="text-3xl">Danh mục: {data.title}</h1>
+          {data.posts.length === 0 && (
+            <p className="text-center text-gray-400 my-5">
+              Chưa có bài viết nào về danh mục này.
+            </p>
+          )}
 
           {data.posts.map((post: any, index: number) => (
             <PostItem
