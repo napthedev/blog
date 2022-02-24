@@ -3,7 +3,7 @@ import Link from "next/link";
 import SocialShare from "../../components/SocialShare";
 import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
-import "highlight.js/styles/atom-one-dark.css";
+import "highlight.js/styles/stackoverflow-dark.css";
 import Meta from "../../components/Meta";
 import Error from "../404";
 
