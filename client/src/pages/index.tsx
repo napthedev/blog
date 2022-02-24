@@ -77,7 +77,7 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.fetch(`
     {
-      "posts": *[_type == "post"] | order(_updatedAt asc) {
+      "posts": *[_type == "post"] | order(_updatedAt desc) {
         title,
         description,
         slug,
