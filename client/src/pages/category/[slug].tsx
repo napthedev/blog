@@ -2,13 +2,14 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Meta from "../../components/Meta";
 import PostItem from "../../components/PostItem";
 import { client } from "../../shared/client";
+import Error from "../404";
 
 interface CategoryProps {
   data: any;
 }
 
 const Category: NextPage<CategoryProps> = ({ data }) => {
-  if (!data) return <></>;
+  if (!data) return <Error />;
 
   return (
     <>
@@ -63,7 +64,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (!data)
     return {
-      props: {},
       notFound: true,
     };
 

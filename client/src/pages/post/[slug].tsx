@@ -5,13 +5,14 @@ import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
 import "highlight.js/styles/atom-one-dark.css";
 import Meta from "../../components/Meta";
+import Error from "../404";
 
 interface PostProps {
   data: any;
 }
 
 const Post: NextPage<PostProps> = ({ data }) => {
-  if (!data) return <></>;
+  if (!data) return <Error />;
 
   return (
     <>
@@ -75,7 +76,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (!data)
     return {
-      props: {},
       notFound: true,
     };
 
