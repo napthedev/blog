@@ -1,8 +1,9 @@
 import type { GetStaticProps, NextPage } from "next";
+import { client, urlFor } from "../shared/client";
+
 import Link from "next/link";
 import Meta from "../components/Meta";
 import PostItem from "../components/PostItem";
-import { client, urlFor } from "../shared/client";
 import { formatDate } from "../shared/utils";
 
 interface HomeProps {
@@ -51,12 +52,13 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.fetch(`
     {
-      "posts": *[_type == "post"] | order(_updatedAt desc) {
+      "posts": *[_type == "post" && (!(_id match "drafts*"))] | order(_updatedAt desc) {
         title,
         description,
         slug,
         _updatedAt,
         mainImage,
+        ...
       },
       "categories": *[_type == "category"] | order(_createdAt asc) {
         title,
@@ -64,6 +66,7 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     }
   `);
+  console.log(data);
 
   return {
     props: {

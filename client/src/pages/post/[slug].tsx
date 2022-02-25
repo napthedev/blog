@@ -1,11 +1,13 @@
+import "highlight.js/styles/stackoverflow-dark.css";
+
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import SocialShare from "../../components/SocialShare";
 import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
-import "highlight.js/styles/stackoverflow-dark.css";
-import Meta from "../../components/Meta";
+
 import Error from "../404";
+import Link from "next/link";
+import Meta from "../../components/Meta";
+import SocialShare from "../../components/SocialShare";
 
 interface PostProps {
   data: any;
@@ -60,7 +62,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const res = await client.fetch(
     `
-    *[_type == "post" && slug.current == $slug] {
+    *[_type == "post" && slug.current == $slug && (!(_id match "drafts*"))] {
       ...,
       categories[]->{
         title,
@@ -94,7 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.fetch(`
-    *[_type == "post"] | order(_updatedAt asc) {
+    *[_type == "post" && (!(_id match "drafts*"))] | order(_updatedAt asc) {
       slug
     }
   `);

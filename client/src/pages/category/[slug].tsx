@@ -1,8 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+
+import Error from "../404";
 import Meta from "../../components/Meta";
 import PostItem from "../../components/PostItem";
 import { client } from "../../shared/client";
-import Error from "../404";
 
 interface CategoryProps {
   data: any;
@@ -51,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     *[_type == "category" && slug.current == $slug] {
       slug,
       title,
-      "posts": *[_type == "post" && references(^._id)] | order(_updatedAt desc) {
+      "posts": *[_type == "post" && references(^._id) && (!(_id match "drafts*"))] | order(_updatedAt desc) {
         title,
         description,
         slug,
