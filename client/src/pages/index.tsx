@@ -58,7 +58,6 @@ export const getStaticProps: GetStaticProps = async () => {
         slug,
         _updatedAt,
         mainImage,
-        ...
       },
       "categories": *[_type == "category"] | order(_createdAt asc) {
         title,
@@ -66,7 +65,6 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     }
   `);
-  console.log(data);
 
   return {
     props: {
