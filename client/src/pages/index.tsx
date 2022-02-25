@@ -4,7 +4,6 @@ import { client, urlFor } from "../shared/client";
 import Link from "next/link";
 import Meta from "../components/Meta";
 import PostItem from "../components/PostItem";
-import { formatDate } from "../shared/utils";
 
 interface HomeProps {
   posts: any;

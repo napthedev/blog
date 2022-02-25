@@ -3,23 +3,29 @@ import "highlight.js/styles/stackoverflow-dark.css";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
+import { useEffect, useRef } from "react";
 
 import Error from "../404";
 import Link from "next/link";
 import Meta from "../../components/Meta";
-import Script from "next/script";
 import SocialShare from "../../components/SocialShare";
-import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 interface PostProps {
   data: any;
 }
 
 const Post: NextPage<PostProps> = ({ data }) => {
+  const router = useRouter();
+
+  const commentContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    commentContainerRef.current?.innerHTML &&
+      (commentContainerRef.current.innerHTML = "");
     // @ts-ignore
     window?.FB?.XFBML?.parse();
-  }, []);
+  }, [router.asPath]);
 
   if (!data) return <Error />;
 
@@ -58,6 +64,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
           ></div>
           <h1 className="mt-8 text-3xl">Bình luận</h1>
           <div
+            ref={commentContainerRef}
             className="fb-comments my-3 bg-gray-100 px-3"
             data-href={`https://blog.napthedev.com/post/${data.slug.current}`}
             data-width="100%"
