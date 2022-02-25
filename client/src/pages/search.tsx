@@ -1,4 +1,5 @@
 import type { GetServerSideProps, NextPage } from "next";
+
 import Meta from "../components/Meta";
 import PostItem from "../components/PostItem";
 import { client } from "../shared/client";
@@ -47,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const data = await client.fetch(
     `
-      *[_type == "post"] 
+      *[_type == "post" && (!(_id match "drafts*"))] 
       | score([title, description] match $searchQuery)
       | order(score desc)
       {
