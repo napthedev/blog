@@ -69,6 +69,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
             data-href={`https://blog.napthedev.com/post/${data.slug.current}`}
             data-width="100%"
             data-numposts="5"
+            data-order-by="reverse_time"
           ></div>
 
           <h1 className="mt-8 mb-3 text-3xl">Bài viết liên quan</h1>
