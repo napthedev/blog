@@ -9,12 +9,18 @@ import Link from "next/link";
 import Meta from "../../components/Meta";
 import Script from "next/script";
 import SocialShare from "../../components/SocialShare";
+import { useEffect } from "react";
 
 interface PostProps {
   data: any;
 }
 
 const Post: NextPage<PostProps> = ({ data }) => {
+  useEffect(() => {
+    // @ts-ignore
+    window?.FB?.XFBML?.parse();
+  }, []);
+
   if (!data) return <Error />;
 
   return (
@@ -84,14 +90,6 @@ const Post: NextPage<PostProps> = ({ data }) => {
           </div>
         </div>
       </div>
-
-      <Script
-        async
-        defer
-        crossOrigin="anonymous"
-        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=1005788883628478&autoLogAppEvents=1"
-        strategy="lazyOnload"
-      ></Script>
     </>
   );
 };
