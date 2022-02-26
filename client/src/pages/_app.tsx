@@ -9,6 +9,13 @@ import Script from "next/script";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <meta
+          property="fb:app_id"
+          content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}
+        />
+        <meta property="fb:admins" content="100054125401462" />
+      </Head>
       <Navbar />
       <Component {...pageProps} />
       <Footer />
