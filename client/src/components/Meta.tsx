@@ -1,3 +1,4 @@
+import { BASE_URL } from "../shared/constant";
 import { FC } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -9,8 +10,6 @@ interface MetaProps {
 }
 
 const Meta: FC<MetaProps> = ({ title, description, image }) => {
-  const BASE_URL = "https://blog.napthedev.ml";
-
   const router = useRouter();
 
   return (

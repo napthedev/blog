@@ -1,4 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { BASE_URL } from "../shared/constant";
+import { FC } from "react";
+import { useRouter } from "next/router";
 
 interface SocialShareProps {
   title: string;
@@ -37,20 +39,14 @@ const providers: {
 ];
 
 const SocialShare: FC<SocialShareProps> = ({ title }) => {
-  const [baseURL, setBaseURL] = useState("");
-
-  useEffect(() => {
-    if (window.location.href) {
-      setBaseURL(window.location.href);
-    }
-  }, []);
+  const router = useRouter();
 
   return (
     <div className="flex gap-2 flex-wrap my-3">
       {providers.map((provider) => (
         <a
           key={provider.icon}
-          href={provider.link(baseURL, title)}
+          href={provider.link(`${BASE_URL}${router.asPath}`, title)}
           target="_blank"
           rel="noopener noreferrer"
         >
