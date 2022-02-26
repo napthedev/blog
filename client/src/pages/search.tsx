@@ -49,7 +49,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const data = await client.fetch(
     `
       *[_type == "post" && (!(_id match "drafts*"))] 
-      | score([title, description] match $searchQuery)
+      | score(
+        boost(title match $searchQuery, 2),
+        description match $searchQuery
+      )
       | order(score desc)
       {
         _score,
