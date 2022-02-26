@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import { client, urlFor } from "../shared/client";
 
+import Layout from "../components/Layout";
 import Link from "next/link";
 import Meta from "../components/Meta";
 import PostItem from "../components/PostItem";
@@ -18,30 +19,28 @@ const Home: NextPage<HomeProps> = ({ posts, categories }) => {
         description="Blog chia sẻ kinh nghiệm của mình"
         image="/illustration.jpg"
       />
-      <div className="flex justify-center mx-6">
-        <div className="flex flex-col items-stretch w-full max-w-[700px] min-h-screen my-5 md:my-10">
-          {posts.map((post: any, index: number) => (
-            <PostItem
-              key={post.slug.current}
-              post={post}
-              index={index}
-              total={posts.length}
-            />
-          ))}
+      <Layout>
+        {posts.map((post: any, index: number) => (
+          <PostItem
+            key={post.slug.current}
+            post={post}
+            index={index}
+            total={posts.length}
+          />
+        ))}
 
-          <div className="flex gap-x-2 flex-wrap">
-            <p>Tags: </p>
-            {categories.map((category: any) => (
-              <Link
-                key={category.slug.current}
-                href={`/category/${category.slug.current}`}
-              >
-                <a className="text-primary">{category.title}</a>
-              </Link>
-            ))}
-          </div>
+        <div className="flex gap-x-2 flex-wrap">
+          <p>Tags: </p>
+          {categories.map((category: any) => (
+            <Link
+              key={category.slug.current}
+              href={`/category/${category.slug.current}`}
+            >
+              <a className="text-primary">{category.title}</a>
+            </Link>
+          ))}
         </div>
-      </div>
+      </Layout>
     </>
   );
 };

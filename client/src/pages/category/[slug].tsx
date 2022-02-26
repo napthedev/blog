@@ -1,6 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import Error from "../404";
+import Layout from "../../components/Layout";
 import Meta from "../../components/Meta";
 import PostItem from "../../components/PostItem";
 import { client } from "../../shared/client";
@@ -19,25 +20,23 @@ const Category: NextPage<CategoryProps> = ({ data }) => {
         description="NAPTheDev's Blog"
         image="/illustration"
       />
-      <div className="flex justify-center mx-6">
-        <div className="flex flex-col items-stretch w-full max-w-[700px] min-h-screen my-5 md:my-10">
-          <h1 className="text-3xl">Danh mục: {data.title}</h1>
-          {data.posts.length === 0 && (
-            <p className="text-center text-gray-400 my-5">
-              Chưa có bài viết nào về danh mục này.
-            </p>
-          )}
+      <Layout>
+        <h1 className="text-3xl">Danh mục: {data.title}</h1>
+        {data.posts.length === 0 && (
+          <p className="text-center text-gray-400 my-5">
+            Chưa có bài viết nào về danh mục này.
+          </p>
+        )}
 
-          {data.posts.map((post: any, index: number) => (
-            <PostItem
-              key={post.slug.current}
-              post={post}
-              index={index}
-              total={data.posts.length}
-            />
-          ))}
-        </div>
-      </div>
+        {data.posts.map((post: any, index: number) => (
+          <PostItem
+            key={post.slug.current}
+            post={post}
+            index={index}
+            total={data.posts.length}
+          />
+        ))}
+      </Layout>
     </>
   );
 };
