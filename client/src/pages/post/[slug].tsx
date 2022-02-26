@@ -79,7 +79,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
               <Link key={post.slug.current} href={`/post/${post.slug.current}`}>
                 <a className="flex gap-2 group">
                   <img
-                    className="w-[70px] h-[70px] flex-shrink-0 group-hover:brightness-90 transition duration-300"
+                    className="w-[70px] h-[70px] flex-shrink-0 group-hover:brightness-90 transition duration-300 border dark:border-gray-600"
                     src={urlFor(post.mainImage)
                       .fit("clip")
                       .width(70)
