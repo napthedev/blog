@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from "next";
-import { client, urlFor } from "../shared/client";
 
 import Layout from "../components/Layout";
 import Link from "next/link";
 import Meta from "../components/Meta";
 import PostItem from "../components/PostItem";
+import { client } from "../shared/client";
 
 interface HomeProps {
   posts: any;
