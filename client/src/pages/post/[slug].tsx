@@ -5,9 +5,9 @@ import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
 import { useEffect, useRef } from "react";
 
-import Error from "../404";
 import Layout from "../../components/Layout";
 import Link from "next/link";
+import Loading from "../../components/Loading";
 import Meta from "../../components/Meta";
 import SocialShare from "../../components/SocialShare";
 import { useRouter } from "next/router";
@@ -28,7 +28,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
     window?.FB?.XFBML?.parse();
   }, [router.asPath]);
 
-  if (!data) return <Error />;
+  if (!data) return <Loading />;
 
   return (
     <>

@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import Error from "../404";
 import Layout from "../../components/Layout";
+import Loading from "../../components/Loading";
 import Meta from "../../components/Meta";
 import PostItem from "../../components/PostItem";
 import { client } from "../../shared/client";
@@ -11,7 +11,7 @@ interface CategoryProps {
 }
 
 const Category: NextPage<CategoryProps> = ({ data }) => {
-  if (!data) return <Error />;
+  if (!data) return <Loading />;
 
   return (
     <>
