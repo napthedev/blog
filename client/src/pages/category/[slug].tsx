@@ -1,7 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import Layout from "../../components/Layout";
-import Loading from "../../components/Loading";
 import Meta from "../../components/Meta";
 import PostItem from "../../components/PostItem";
 import { client } from "../../shared/client";
@@ -11,8 +10,6 @@ interface CategoryProps {
 }
 
 const Category: NextPage<CategoryProps> = ({ data }) => {
-  if (!data) return <Loading />;
-
   return (
     <>
       <Meta
@@ -91,6 +88,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
         slug: item.slug.current,
       },
     })),
-    fallback: true,
+    fallback: "blocking",
   };
 };

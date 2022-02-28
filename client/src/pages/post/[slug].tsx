@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 
 import Layout from "../../components/Layout";
 import Link from "next/link";
-import Loading from "../../components/Loading";
 import Meta from "../../components/Meta";
 import SocialShare from "../../components/SocialShare";
 import { useRouter } from "next/router";
@@ -27,8 +26,6 @@ const Post: NextPage<PostProps> = ({ data }) => {
     // @ts-ignore
     window?.FB?.XFBML?.parse();
   }, [router.asPath]);
-
-  if (!data) return <Loading />;
 
   return (
     <>
@@ -172,6 +169,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
         slug: item.slug.current,
       },
     })),
-    fallback: true,
+    fallback: "blocking",
   };
 };
