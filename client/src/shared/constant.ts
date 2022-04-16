@@ -1,1 +1,1 @@
-export const BASE_URL = "https://blog.napthedev.ml";
+export const BASE_URL = "https://blog.napthedev.com";
