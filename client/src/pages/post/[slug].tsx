@@ -54,7 +54,7 @@ const Post: NextPage<PostProps> = ({ data }) => {
         <SocialShare title={data.title} />
         <p className="my-4">{data.description}</p>
         <article
-          className="prose dark:prose-invert prose-headings:text-sky-500 dark:prose-headings:text-sky-400 prose-a:text-blue-500 dark:prose-a:text-blue-400 prose-headings:mt-6 prose-headings:mb-4 prose-pre:bg-[#121213]"
+          className="prose dark:prose-invert prose-headings:text-sky-600 dark:prose-headings:text-sky-400 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-headings:mt-8 prose-headings:mb-6 prose-pre:bg-[#121213]"
           dangerouslySetInnerHTML={{ __html: data.body }}
         ></article>
         <h1 className="mt-8 text-3xl">Bình luận</h1>

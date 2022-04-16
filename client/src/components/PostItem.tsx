@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { FC } from "react";
-import { urlFor } from "../shared/client";
+import Link from "next/link";
 import { formatDate } from "../shared/utils";
+import { urlFor } from "../shared/client";
 
 interface PostItemProps {
   post: any;
