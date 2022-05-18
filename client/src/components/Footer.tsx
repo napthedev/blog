@@ -3,7 +3,7 @@ import { FC } from "react";
 const Footer: FC = () => {
   return (
     <div className="h-14 flex justify-between items-center px-6 border-t dark:border-gray-600">
-      <p>Copyright NAPTheDev &copy; 2022</p>
+      <p>Copyright NAPTheDev &copy; {new Date().getFullYear()}</p>
       <div className="flex gap-2">
         <p className="hidden md:block">Contact me: </p>
         <a
