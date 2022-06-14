@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           property="fb:app_id"
           content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}
         />
+        <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
       </Head>
       <Navbar />
       <Component {...pageProps} />
