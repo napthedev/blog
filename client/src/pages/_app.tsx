@@ -22,18 +22,31 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Footer />
       <div id="fb-root"></div>
       <Script
-        strategy="lazyOnload"
-        async
+        strategy="worker"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       ></Script>
-      <Script id="google-analytics" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
-        `}
-      </Script>
+      <script
+        type="text/partytown"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+        `,
+        }}
+      />
+      <script
+        data-partytown-config
+        dangerouslySetInnerHTML={{
+          __html: `
+          partytown = {
+            lib: "/_next/static/~partytown/",
+            forward: ["gtag"]
+          };
+        `,
+        }}
+      />
     </>
   );
 }

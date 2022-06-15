@@ -5,6 +5,9 @@ const withAnalyzer = require("@next/bundle-analyzer")({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    nextScriptWorkers: true,
+  },
   webpack: (config, { isServer, dev }) => {
     if (!dev && !isServer) {
       config.resolve.alias = {
