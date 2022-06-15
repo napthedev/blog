@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Meta from "../../components/Meta";
+import Script from "next/script";
 import SocialShare from "../../components/SocialShare";
 import { client } from "../../shared/client";
 import { urlFor } from "../../shared/url-builder";
@@ -91,6 +92,14 @@ const Post: NextPage<PostProps> = ({ data }) => {
           ))}
         </div>
       </Layout>
+      <Script
+        id="facebook-comments"
+        async
+        defer
+        crossOrigin="anonymous"
+        src={`https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=${process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}&autoLogAppEvents=1`}
+        strategy="lazyOnload"
+      ></Script>
     </>
   );
 };

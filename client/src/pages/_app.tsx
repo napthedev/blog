@@ -34,13 +34,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
         `}
       </Script>
-      <Script
-        async
-        defer
-        crossOrigin="anonymous"
-        src={`https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=${process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}&autoLogAppEvents=1`}
-        strategy="lazyOnload"
-      ></Script>
     </>
   );
 }
