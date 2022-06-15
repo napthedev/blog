@@ -1,5 +1,5 @@
 const withAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.NODE_ENV !== "development",
+  enabled: process.env.ANALYZE === "true",
 });
 
 /** @type {import('next').NextConfig} */
