@@ -1,5 +1,3 @@
-import "highlight.js/styles/stackoverflow-dark.css";
-
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";

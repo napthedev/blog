@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/stackoverflow-dark.css";
 
 import type { AppProps } from "next/app";
 import Footer from "../components/Footer";
