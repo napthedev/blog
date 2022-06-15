@@ -1,5 +1,4 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { client, urlFor } from "../../shared/client";
 import { formatDate, markdownToHTML } from "../../shared/utils";
 import { useEffect, useRef } from "react";
 
@@ -7,6 +6,8 @@ import Layout from "../../components/Layout";
 import Link from "next/link";
 import Meta from "../../components/Meta";
 import SocialShare from "../../components/SocialShare";
+import { client } from "../../shared/client";
+import { urlFor } from "../../shared/url-builder";
 import { useRouter } from "next/router";
 
 interface PostProps {

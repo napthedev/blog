@@ -14,10 +14,12 @@ const nextConfig = {
         "react-dom": "preact/compat",
       };
 
-      config.module.rules.push({
-        test: /\b(?:highlight\.js|cheerio|showdown)\b/gi,
-        use: "null-loader",
-      });
+      ["highlight.js", "cheerio", "showdown", "@sanity/client"].map((lib) =>
+        config.module.rules.push({
+          test: new RegExp(lib),
+          use: "null-loader",
+        })
+      );
     }
 
     return config;
