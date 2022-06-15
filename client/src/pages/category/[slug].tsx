@@ -15,7 +15,7 @@ const Category: NextPage<CategoryProps> = ({ data }) => {
       <Meta
         title={`Danh mục: ${data.title}`}
         description="NAPTheDev's Blog"
-        image="/illustration"
+        image="/avatar.jpg"
       />
       <Layout>
         <h1 className="text-3xl">Danh mục: {data.title}</h1>

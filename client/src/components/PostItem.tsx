@@ -24,6 +24,7 @@ const PostItem: FC<PostItemProps> = ({ post, total, index }) => {
               .fit("clip")
               .width(150)
               .height(150)
+              .format("webp")
               .url()}
             alt=""
           />

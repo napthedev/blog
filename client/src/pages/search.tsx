@@ -16,7 +16,7 @@ const Search: NextPage<SearchProps> = ({ data, q }) => {
       <Meta
         title={`Tìm kiếm: ${q}`}
         description="NAPTheDev's Blog"
-        image="illustration"
+        image="/avatar.jpg"
       />
 
       <Layout>

@@ -17,7 +17,7 @@ const Home: NextPage<HomeProps> = ({ posts, categories }) => {
       <Meta
         title="NAPTheDev's Blog"
         description="Blog chia sẻ kinh nghiệm của mình"
-        image="/illustration.jpg"
+        image="/avatar.jpg"
       />
       <Layout>
         {posts.map((post: any, index: number) => (
