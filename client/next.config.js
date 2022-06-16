@@ -15,7 +15,13 @@ const nextConfig = {
         "react-dom": "preact/compat",
       };
 
-      ["highlight.js", "cheerio", "showdown", "@sanity/client"].map((lib) =>
+      [
+        "highlight.js",
+        "markdown-it",
+        "markdown-it-anchor",
+        "replace-special-characters",
+        "@sanity/client",
+      ].map((lib) =>
         config.module.rules.push({
           test: new RegExp(lib),
           use: "null-loader",
