@@ -2,6 +2,8 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { formatDate, markdownToHTML } from "../../shared/utils";
 import { useEffect, useRef } from "react";
 
+// @ts-ignore
+import AnchorJS from "anchor-js";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Meta from "../../components/Meta";
@@ -21,6 +23,9 @@ const Post: NextPage<PostProps> = ({ data }) => {
   const commentContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const anchors = new AnchorJS();
+    anchors.add();
+
     commentContainerRef.current?.innerHTML &&
       (commentContainerRef.current.innerHTML = "");
     // @ts-ignore
@@ -52,9 +57,9 @@ const Post: NextPage<PostProps> = ({ data }) => {
           ))}
         </div>
         <SocialShare title={data.title} />
-        <p className="my-4">{data.description}</p>
+        <p className="text-lg">{data.description}</p>
         <article
-          className="prose dark:prose-invert prose-headings:text-sky-600 dark:prose-headings:text-sky-400 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-headings:mt-8 prose-headings:mb-6 prose-pre:bg-[#121213]"
+          className="prose prose-lg dark:prose-invert prose-headings:text-sky-600 dark:prose-headings:text-sky-400 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-headings:mt-8 prose-headings:mb-6 prose-pre:bg-[#121213]"
           dangerouslySetInnerHTML={{ __html: data.body }}
         ></article>
         <h1 className="mt-8 text-3xl">Bình luận</h1>

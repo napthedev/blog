@@ -13,26 +13,28 @@
     "@sanity/client": "^3.1.0",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/typography": "^0.5.2",
-    "cheerio": "^1.0.0-rc.10",
+    "anchor-js": "^4.3.1",
     "dayjs": "^1.10.7",
     "highlight.js": "^11.4.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.4",
     "next": "^12.1.6",
     "null-loader": "^4.0.1",
     "preact": "^10.8.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "showdown": "^2.0.0"
+    "replace-special-characters": "^1.2.5"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.3.1",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "17.0.19",
     "@types/react": "17.0.39",
-    "@types/showdown": "^1.9.4",
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.7",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
-    "postcss": "^8.4.6",
-    "tailwindcss": "^3.0.23",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.3",
     "typescript": "4.5.5"
   }
 }

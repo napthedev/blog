@@ -5,3 +5,7 @@
 body {
   @apply bg-white text-black dark:bg-[#242526] dark:text-gray-200;
 }
+
+.anchorjs-link {
+  @apply !text-inherit !no-underline !text-sky-600 dark:!text-sky-400;
+}
