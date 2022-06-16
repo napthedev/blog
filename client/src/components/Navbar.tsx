@@ -14,7 +14,7 @@ const Navbar: FC = () => {
         </a>
       </Link>
       {resolvedTheme === "light" ? (
-        <button onClick={() => setTheme("dark")}>
+        <button title="Enable dark mode" onClick={() => setTheme("dark")}>
           <svg
             className="w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ const Navbar: FC = () => {
           </svg>
         </button>
       ) : (
-        <button onClick={() => setTheme("light")}>
+        <button title="Disable dark mode" onClick={() => setTheme("light")}>
           <svg
             className="w-6 h-6"
             viewBox="0 0 24 24"
