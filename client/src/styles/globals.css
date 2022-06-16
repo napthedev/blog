@@ -15,5 +15,9 @@ pre {
 }
 
 .copy-btn {
-  @apply absolute top-4 right-4;
+  @apply absolute top-4 right-4 flex items-center gap-1;
+}
+
+.copy-btn span {
+  @apply leading-[1];
 }
