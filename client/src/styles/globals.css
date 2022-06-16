@@ -9,3 +9,11 @@ body {
 .anchorjs-link {
   @apply !text-inherit !no-underline !text-sky-600 dark:!text-sky-400;
 }
+
+pre {
+  @apply relative;
+}
+
+.copy-btn {
+  @apply absolute top-4 right-4;
+}
