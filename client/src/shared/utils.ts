@@ -40,11 +40,11 @@ export const markdownToHTML = (text: string) => {
     highlight: (str, lang) => {
       try {
         if (hljs.getLanguage(lang)) {
-          return hljs.highlight(str, { language: lang }).value;
+          return hljs.highlight(str.trim(), { language: lang }).value;
         }
-        return str;
+        return str.trim();
       } catch (error) {
-        return str;
+        return str.trim();
       }
     },
   });
